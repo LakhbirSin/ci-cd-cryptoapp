@@ -122,3 +122,33 @@ def test_caesar():
 
 # Bon codage !
 #######################################################################
+
+def test_md5():
+
+    md5 = MD5()
+    msg = "Message"
+    expected_encryption = "4c2a8fe7eaf24721cc7a9f0175115bd4"
+
+
+    encrypted = md5.encrypt(msg)
+    assert encrypted == expected_encryption
+    
+def test_sha():
+
+    sha = SHA()
+    msg = "Message"
+    expected_encryption = "4fb472dfc43def7a46ad442c58ac532f89e0c8a96f23b672f5fd637652eab158d4d589444ef7530a34e6626b40830b4e1ec5364611ae31c599bffa958e8b4c4e"
+
+    encrypted = sha.encrypt(msg)
+    assert encrypted == expected_encryption
+
+
+def test_des():
+
+    des = DES()
+    msg  ='Message'
+    key = "abcdefgh"
+
+    encrypted = des.encrypt(msg,key)
+    decrypted = des.decrypt(encrypted,key)
+    assert decrypted == msg
