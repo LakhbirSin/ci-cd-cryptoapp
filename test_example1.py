@@ -90,11 +90,12 @@ def test_blowfish():
     blowfish = Blowfish()
     msg = "message"
     key = "ma clé privée"
-    expected_encryption = ""
+    expected_encryption = blowfish.encrypt(msg, key)
+
 
     # À vous ! Ne testez que la valeur du message décrypté cette fois !
-    encrypted = blowfish.encrypt(msg, key)
-    assert encrypted == ""
+    Decrypted = blowfish.decrypt(expected_encryption, key)
+    assert msg == Decrypted
 
 def test_caesar():
 
